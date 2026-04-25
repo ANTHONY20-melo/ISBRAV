@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!assets/|_expo/|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]
