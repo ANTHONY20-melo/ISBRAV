@@ -263,79 +263,28 @@ export default function HomeScreen() {
         {/* Espaço vazio para visualização do vídeo de fundo */}
         <View style={styles.heroSpacer} />
 
-        {/* Stats Bar (Liberada da rolagem fixa para melhor experiência mobile) */}
-        <View style={styles.stickyWrapper}>
-          <AnimatedFadeIn delay={300} offsetY={20}>
-            <View style={[styles.statsBar, { flexDirection: isWeb ? 'row' : 'column' } as ViewStyle]}>
-              <View style={styles.statItem}>
-                <PulsingDot />
-                <ThemedText style={styles.statLabel}>SYSTEM: <ThemedText style={styles.statValueActive}>OPERATIONAL</ThemedText></ThemedText>
-              </View>
-              <View style={styles.statSeparator} />
-              <View style={styles.statItem}>
-                <IconSymbol name="person.3.fill" size={14} color="#FFD700" />
-                <ThemedText style={styles.statLabel}>ACTIVE USERS: <ThemedText style={styles.statValue}>142</ThemedText></ThemedText>
-              </View>
-              <View style={styles.statSeparator} />
-              <View style={styles.statItem}>
-                <IconSymbol name="bolt.fill" size={14} color="#FFD700" />
-                <ThemedText style={styles.statLabel}>UPTIME: <ThemedText style={styles.statValue}>99.9%</ThemedText></ThemedText>
-              </View>
-            </View>
-          </AnimatedFadeIn>
-        </View>
-
         {/* Dashboard Preview */}
         <ThemedView style={styles.dashboardOverviewSection}>
           <AnimatedFadeIn delay={400} offsetY={30}>
             <View style={styles.hudHeader}>
               <View style={styles.hudHeaderLeft}>
                 <View style={styles.hudSquare} />
-                <ThemedText type="subtitle" style={styles.dashboardOverviewTitle}>BIOMETRIC & OPERATIONAL INTELLIGENCE HUB</ThemedText>
+                <ThemedText type="subtitle" style={styles.dashboardOverviewTitle}>A JORNADA ISBRAV: FUNDADA EM 2026</ThemedText>
               </View>
               <View style={styles.hudLine} />
               <ThemedText style={styles.hudStatus}>[ SYSTEM_OPTIMIZED: v1.0.4 ]</ThemedText>
             </View>
             
-            <View style={[styles.dashboardMetricsGrid, { flexDirection: isWeb ? 'row' : 'column', maxWidth: isWeb ? 900 : '100%', gap: 20 }]}>
-              <View style={styles.metricCard}>
-                <View style={styles.metricCardHeader}>
-                  <ThemedText style={styles.hudLabel}>DATA_STREAM_01</ThemedText>
-                  <PulsingDot />
-                </View>
-                <View style={styles.metricValueContainer}>
-                  <ThemedText style={styles.metricValue}>1.240</ThemedText>
-                  <ThemedText style={styles.metricUnit}>UNIT</ThemedText>
-                </View>
-                <ThemedText style={styles.metricLabel}>TOTAL_SCHEDULES_SYNC</ThemedText>
-              </View>
-              <View style={styles.metricCard}>
-                <View style={styles.metricCardHeader}>
-                  <ThemedText style={styles.hudLabel}>DATA_STREAM_02</ThemedText>
-                  <View style={[styles.livePulse, { backgroundColor: '#FFD700' }]} />
-                </View>
-                <View style={styles.metricValueContainer}>
-                  <ThemedText style={styles.metricValue}>85</ThemedText>
-                  <ThemedText style={styles.metricUnit}>NODE</ThemedText>
-                </View>
-                <ThemedText style={styles.metricLabel}>ACTIVE_RECORDS_INDEX</ThemedText>
-              </View>
-            </View>
-            <View style={[styles.dataCard, { width: isWeb ? 750 : windowWidth * 0.9 }]}>
-              <View style={styles.chartGridOverlay} />
-              <View style={styles.scanEffect} />
-              <ThemedText style={styles.chartTitle}>OPERATIONAL_WAVEFORM_SCAN</ThemedText>
-              <View style={styles.chartContainer}>
-                {[40, 70, 45, 90, 65, 80, 100].map((h, i) => (
-                  <View key={i} style={{ flex: 1, alignItems: 'center' }}>
-                    <HUDChartBar targetHeight={h} delay={1200 + (i * 100)} />
-                  </View>
-                ))}
-              </View>
-              <View style={styles.chartFooter}>
-                <ThemedText style={styles.chartLegend}>SEC_PROTOCOL_ACTIVE</ThemedText>
-                <ThemedText style={styles.chartLegend}>REAL_TIME_SYNC_ENABLED</ThemedText>
-              </View>
+            <View style={styles.storyContainer}>
+              <ThemedText style={styles.storyText}>
+                Em um futuro não tão distante, precisamente em 2026, a ISBRAV foi concebida sob a premissa de que a saúde não deveria ser um labirinto burocrático. Nascemos da fusão entre a engenharia de precisão e a necessidade vital de humanizar a gestão clínica.
+              </ThemedText>
+              <ThemedText style={styles.storyText}>
+                Nossa fundação marcou o fim dos processos desconectados. Criamos um ecossistema onde agendamentos, prontuários e inteligência operacional convergem em um único fluxo de dados contínuo. Nosso intuito foi, e sempre será, prover o "cérebro digital" para clínicas que buscam a excelência em cada batimento.
+              </ThemedText>
+              <ThemedText style={styles.storyText}>
+                Hoje, a ISBRAV ajuda centenas de especialistas a recuperarem o que têm de mais valioso: o tempo. Tempo para focar no diagnóstico, tempo para focar no cuidado, enquanto nossa infraestrutura garante que o gerenciamento ocorra com a fluidez de um código perfeito.
+              </ThemedText>
             </View>
           </AnimatedFadeIn>
         </ThemedView>
@@ -633,6 +582,18 @@ const styles = StyleSheet.create({
   hudHeaderLeft: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   hudSquare: { width: 14, height: 14, backgroundColor: '#FFD700' },
   hudLine: { height: 1, flex: 1, backgroundColor: 'rgba(255, 215, 0, 0.15)' },
+  storyContainer: {
+    maxWidth: 850,
+    paddingHorizontal: 20,
+    gap: 20,
+    marginTop: 10,
+  },
+  storyText: {
+    color: '#CCC',
+    fontSize: 16,
+    lineHeight: 26,
+    letterSpacing: 0.5,
+  },
   hudStatus: { color: '#666', fontSize: 9, fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace', letterSpacing: 1 },
   dashboardOverviewTitle: { color: '#FFF', fontSize: 16, letterSpacing: 4, fontWeight: '900' },
   dashboardMetricsGrid: { 

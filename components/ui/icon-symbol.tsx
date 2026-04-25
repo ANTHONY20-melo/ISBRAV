@@ -28,6 +28,9 @@ const MAPPING = {
   'lock.fill': 'lock',
   'bubbles.and.sparkles.fill': 'auto-awesome',
   'info.circle.fill': 'info-outline',
+  'pie.chart.fill': 'pie-chart',
+  'eye.fill': 'visibility',
+  'eye.slash.fill': 'visibility-off',
 };
 
 export type IconSymbolName = keyof typeof MAPPING;

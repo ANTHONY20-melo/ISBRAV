@@ -2,6 +2,7 @@ import { Stack, useRouter, useSegments } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { supabase } from './supabase';
 import { Session } from '@supabase/supabase-js';
+import { ThemeProvider } from './ThemeContext';
 
 export default function TabLayout() {
   const segments = useSegments();
@@ -46,6 +47,7 @@ export default function TabLayout() {
   }, [session, segments, initialized, router]);
 
   return (
+    <ThemeProvider>
     <Stack>
       <Stack.Screen
         name="index"
@@ -82,5 +84,6 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }} /> */}
     </Stack>
+    </ThemeProvider>
   );
 }
